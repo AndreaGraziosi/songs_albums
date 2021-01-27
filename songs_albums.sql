@@ -19,24 +19,15 @@ CREATE TABLE Albums (
 
 CREATE TABLE Songs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    Album_id INTEGER NOT NULL,
     song_name VARCHAR(70) NOT NULL,
+    Album_id INTEGER,
     FOREIGN KEY (Album_id) REFERENCES Albums(id)
 );
 
 /* 
  * TODO: Insert at least 4 rows of data into the songs table. You can change up the albums as well. :)
  */
-INSERT INTO Songs
-    (Album_id, song_name)
-VALUES
-    (1,'California'),
-    (2,'Country Road'),
-    (3,'Teacher'),
-    (4,'Freedom')
-    ;
- 
-INSERT INTO Albums
+ INSERT INTO Albums
     (name, artist, year_published)
 VALUES
     ('The Dark Side of the Moon', 'Pink Floyd', 1973),
@@ -46,12 +37,29 @@ VALUES
     ('California', 'Blink-182', 2016)
 ;
 
+-- SELECT id
+-- FROM Albums;
 
-/* Queries */
+
+INSERT INTO Songs
+    (song_name, Album_id)
+VALUES
+    ('California', 1),
+    ('Country Road', 2),
+    ('Teacher', 3),
+    ('Freedom', 4),
+    ('go!', 5)
+    ;
+ 
+
+
+
+-- /* Queries */
 
 -- SELECT * FROM Songs;
 
 SELECT * FROM Albums;
+
 
 /* 
  * TODO: Write a table join query to construct a table of Song Name : Album Name
@@ -59,6 +67,7 @@ SELECT * FROM Albums;
 SELECT Albums.name, Songs.song_name
 FROM Albums
 JOIN Songs ON Albums.id = Songs.album_id;
+
 /*
  * TODO: Find all albums published between 1970 and 1980.
  */
