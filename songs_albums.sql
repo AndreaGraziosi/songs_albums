@@ -28,7 +28,7 @@ CREATE TABLE Songs (
  * TODO: Insert at least 4 rows of data into the songs table. You can change up the albums as well. :)
  */
 INSERT INTO Songs
-    (Album_id, name)
+    (Album_id, song_name)
 VALUES
     (1,'California'),
     (2,'Country Road'),
@@ -58,7 +58,7 @@ SELECT * FROM Albums;
  */
 SELECT Albums.name, Songs.song_name
 FROM Albums
-JOIN Songs ON Albums.id = Songs.Album.id;
+JOIN Songs ON Albums.id = Songs.album_id;
 /*
  * TODO: Find all albums published between 1970 and 1980.
  */
